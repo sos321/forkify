@@ -1,0 +1,29 @@
+{
+  "name": "forkify",
+  "version": "1.0.0",
+  "description": "Recipe application",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sos321/forkify.git"
+  },
+  "keywords": [
+    "forkify",
+    "recipe",
+    "learning"
+  ],
+  "author": "Filip Kocian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sos321/forkify/issues"
+  },
+  "homepage": "https://github.com/sos321/forkify#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.2",
+    "parcel": "^2.8.2"
+  }
+}
