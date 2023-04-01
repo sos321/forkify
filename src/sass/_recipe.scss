@@ -134,6 +134,7 @@
   &__ingredient-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
     gap: 2.5rem 3rem;
     list-style: none;
   }
