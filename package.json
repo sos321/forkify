@@ -24,6 +24,11 @@
   "homepage": "https://github.com/sos321/forkify#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
-    "parcel": "^2.8.2"
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "core-js": "^3.29.1",
+    "regenerator-runtime": "^0.13.11"
   }
 }
