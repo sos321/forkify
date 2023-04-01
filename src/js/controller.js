@@ -38,7 +38,7 @@ async function showRecipe() {
     console.log(id);
 
     const res = await fetch(
-      `https://forkify-api.herokuapp.com/api/v2/recipes/${id}?key="45c48ceb-f1a4-406f-98b2-45910013efb8"`
+      `https://forkify-api.herokuapp.com/api/v2/recipes/${id}`
     );
     const data = await res.json();
 
