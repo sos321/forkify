@@ -14,6 +14,8 @@ async function controlRecipes() {
 
   recipeView.render(model.state.recipe);
 }
-['hashchange', 'load'].forEach(ev =>
-  window.addEventListener(ev, controlRecipes)
-);
+
+function init() {
+  recipeView.addHandlerRender(controlRecipes);
+}
+init(); // Initialize the app
