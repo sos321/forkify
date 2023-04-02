@@ -5,14 +5,18 @@ import * as model from './model.js';
 import recipeView from './views/recipeView.js';
 
 async function controlRecipes() {
-  const id = window.location.hash.slice(1);
-  if (!id) return;
+  try {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
 
-  recipeView.renderSpinner();
+    recipeView.renderSpinner();
 
-  await model.loadRecipe(id);
+    await model.loadRecipe(id);
 
-  recipeView.render(model.state.recipe);
+    recipeView.render(model.state.recipe);
+  } catch (err) {
+    recipeView.renderError();
+  }
 }
 
 function init() {
