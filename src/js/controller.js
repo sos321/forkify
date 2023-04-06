@@ -14,11 +14,14 @@ async function controlRecipes() {
 
     recipeView.renderSpinner();
 
+    resultsView.update(model.getSearchResultsPage());
+
     await model.loadRecipe(id);
 
     recipeView.render(model.state.recipe);
   } catch (err) {
     recipeView.renderError();
+    console.error(err);
   }
 }
 
@@ -46,7 +49,7 @@ function controlPagination(goToPage) {
 function controlServings(servings) {
   model.udpdateServings(servings);
 
-  recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
 }
 
 function init() {
