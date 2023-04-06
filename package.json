@@ -2,10 +2,14 @@
   "name": "forkify",
   "version": "1.0.0",
   "description": "Recipe application",
-  "main": "index.js",
+  "default": "index.html",
+  "browserslist": [
+    "last 1 chrome versions"
+  ],
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --public-url ./ --no-scope-hoist",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -24,6 +28,7 @@
   "homepage": "https://github.com/sos321/forkify#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
+    "gh-pages": "^5.0.0",
     "parcel": "^2.8.2",
     "process": "^0.11.10"
   },
