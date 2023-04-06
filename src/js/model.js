@@ -21,7 +21,7 @@ export async function loadRecipe(id) {
       publisher: recipe.publisher,
       sourceUrl: recipe.source_url,
       image: recipe.image_url,
-      serving: recipe.servings,
+      servings: recipe.servings,
       cookingTime: recipe.cooking_time,
       ingredients: recipe.ingredients,
     };
@@ -56,4 +56,13 @@ export function getSearchResultsPage(page = state.search.page) {
   const end = page * RES_PER_PAGE;
 
   return state.search.results.slice(start, end);
+}
+
+export function udpdateServings(servings) {
+  state.recipe.ingredients.forEach(ingridient => {
+    ingridient.quantity =
+      (ingridient.quantity * servings) / state.recipe.servings;
+  });
+
+  state.recipe.servings = servings;
 }
