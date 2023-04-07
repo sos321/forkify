@@ -74,12 +74,18 @@ export function udpdateServings(servings) {
   state.recipe.servings = servings;
 }
 
+function storeBookmarks() {
+  localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
+}
+
 export function addBookmark(recipe) {
   state.bookmarks.push(recipe);
 
   if (recipe.id === state.recipe.id) {
     state.recipe.bookmarked = true;
   }
+
+  storeBookmarks();
 }
 
 export function deleteBookmark(id) {
@@ -89,4 +95,16 @@ export function deleteBookmark(id) {
   if (id === state.recipe.id) {
     state.recipe.bookmarked = false;
   }
+
+  storeBookmarks();
+}
+
+function init() {
+  const storage = localStorage.getItem('bookmarks');
+  state.bookmarks = storage ? JSON.parse(storage) : [];
+}
+init();
+
+function clearBks() {
+  localStorage.clear('bookmarks');
 }

@@ -16,11 +16,12 @@ async function controlRecipes() {
     recipeView.renderSpinner();
 
     resultsView.update(model.getSearchResultsPage());
-    bookmarksView.update(model.state.bookmarks);
 
     await model.loadRecipe(id);
 
     recipeView.render(model.state.recipe);
+
+    bookmarksView.update(model.state.bookmarks);
   } catch (err) {
     recipeView.renderError();
     console.error(err);
@@ -62,7 +63,12 @@ function controlAddBookmark() {
   bookmarksView.render(model.state.bookmarks);
 }
 
+function controlBookmarks() {
+  bookmarksView.render(model.state.bookmarks);
+}
+
 function init() {
+  bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServs(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
