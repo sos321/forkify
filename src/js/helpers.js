@@ -1,8 +1,18 @@
 import { TIMEOUT_SECONDS } from './config';
 
-export async function getJSON(url) {
+export async function AJAX(url, uploadData = undefined) {
   try {
-    const res = await Promise.race([fetch(url), timeout(TIMEOUT_SECONDS)]);
+    const fetchCall = uploadData
+      ? fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(uploadData),
+        })
+      : fetch(url);
+
+    const res = await Promise.race([fetchCall, timeout(TIMEOUT_SECONDS)]);
     const data = res.json();
 
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
