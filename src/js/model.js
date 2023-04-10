@@ -30,7 +30,7 @@ function createRecipeObject(data) {
 
 export async function loadRecipe(id) {
   try {
-    const data = await AJAX(`${API}/${id}`);
+    const data = await AJAX(`${API}/${id}?key=${KEY}`);
 
     state.recipe = createRecipeObject(data);
 
@@ -46,7 +46,7 @@ export async function loadSearchResults(query) {
   try {
     state.search.query = query;
 
-    const data = await AJAX(`${API}/?search=${query}`);
+    const data = await AJAX(`${API}/?search=${query}&key=${KEY}`);
 
     state.search.results = data.data.recipes.map(recipe => {
       return {
@@ -54,6 +54,7 @@ export async function loadSearchResults(query) {
         title: recipe.title,
         publisher: recipe.publisher,
         image: recipe.image_url,
+        ...(recipe.key && { key: recipe.key }),
       };
     });
 
@@ -117,7 +118,7 @@ export async function uploadRecipe(newRecipe) {
     const ingredients = Object.entries(newRecipe)
       .filter(e => e[0].startsWith('ingredient') && e[1] !== '')
       .map(ing => {
-        const ingArr = ing[1].replaceAll(' ', '').split(',');
+        const ingArr = ing[1].split(',').map(el => el.trim());
 
         if (ingArr.length !== 3)
           throw new Error(
