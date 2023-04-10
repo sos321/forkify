@@ -58,12 +58,12 @@
     display: grid;
     width: 100%;
     grid-template-columns: 1fr 2rem;
+    grid-template-rows: 1fr 1fr;
     row-gap: 0.1rem;
     align-items: center;
   }
 
   &__title {
-    grid-column: 1/-1;
     font-size: 1.45rem;
     color: $color-primary;
     text-transform: uppercase;
@@ -81,6 +81,8 @@
     color: $color-grey-dark-2;
     text-transform: uppercase;
     font-weight: 600;
+
+    grid-row: 2 / 3;
   }
 
   &__user-generated {
@@ -92,6 +94,9 @@
     height: 2rem;
     width: 2rem;
     border-radius: 10rem;
+
+    grid-column: -2 / -1;
+    grid-row: 1 / -1;
 
     margin-left: auto;
     margin-right: 1.75rem;
