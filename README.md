@@ -23,6 +23,7 @@ Forkify completed my knowledge of basic and more advanced JS. It felt really goo
 - Structuring code correctly
 - Using an API
 - POST requests
+- Documenting code
 
 ## Biggest obstacle
 
@@ -31,4 +32,6 @@ The biggest pitfall in this project was to find time for this complex JS project
 ## Possible extensions
 
 - [ ] Shopping list
+- [ ] Meal planning
+- [ ] Form validation
 - [ ] Dark mode
