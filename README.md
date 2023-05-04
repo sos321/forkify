@@ -1,7 +1,5 @@
 # Forkify
 
-This web application is currently in development.
-
 More complex web app that lets you search for recipes in a database and view the details of each recipe. It also allows users to change the amount of servings, bookmark their favorite recipes and create their own ones.
 
 This app was created while I studying [this JS course](https://www.udemy.com/course/the-complete-javascript-course/). It is the final and most complex project.
